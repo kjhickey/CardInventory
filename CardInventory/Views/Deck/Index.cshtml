@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CardInventory.Models.Deck>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Decks</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a asp-action="Create" button class="btn btn-primary" type="submit">Create Deck</a>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 5px;">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-action="Details" asp-route-deckId="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a>
+
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+        
+
+

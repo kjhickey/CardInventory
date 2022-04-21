@@ -1,0 +1,29 @@
+﻿@model CardInventory.ViewModels.CardPageViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Cards</h2>
+
+<p>@Model.Card.Name</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RelatedDecks[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var deck in Model.RelatedDecks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => deck.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
